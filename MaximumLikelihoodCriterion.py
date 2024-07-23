@@ -2,9 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# returns cords for normal curve
 def normal(mean, std):
-    x = np.arange(mean-5*std, mean+5*std, ((mean+5*std) - (mean-5*std))/50)
-    y = np.array(list(map(lambda x: (1 / (std * 2.5066)) * np.exp((-1 / 2) * ((x - mean) / std) ** 2), x)))
+    x = np.arange(mean-5*std, mean+5*std, ((mean+5*std) - (mean-5*std))/50)    # -5sig to +5sig
+    y = np.array(list(map(lambda x: (1 / (std * 2.5066)) * np.exp((-1 / 2) * ((x - mean) / std) ** 2), x)))  # normal function
     return x, y
 
 
