@@ -13,11 +13,11 @@ def normal(mean, std):
     return x, y
 
 
-test_distribution = np.array([0.12, 0.15, 0.21, 0.23, 0.24, 0.26, 0.27, 0.31, 0.32, 0.34])
+test_distribution = np.array([12, 15, 21, 23, 24, 26, 27, 31, 32, 34])
 plt.scatter(test_distribution, np.zeros_like(test_distribution))
 
-plt.plot(normal(0.15, 0.05)[0], normal(0.15, 5)[1])
-plt.plot(normal(0.25, 0.05)[0], normal(2.5, 5)[1])
+plt.plot(normal(15, 5)[0], normal(15, 5)[1])
+plt.plot(normal(25, 5)[0], normal(25, 5)[1])
 plt.show()
 
 
@@ -31,8 +31,8 @@ def maximum_likelihood_criterion(mean, std, distribution):
     return likelihood
 
 
-print(maximum_likelihood_criterion(0.15, 0.05, test_distribution))
-print(maximum_likelihood_criterion(0.25, 0.05, test_distribution))
+print(maximum_likelihood_criterion(15, 5, test_distribution))
+print(maximum_likelihood_criterion(25, 5, test_distribution))
 
 """
 When the standard deviation(std) is less than 1, the values at 2 standard deviations (2σ) and 3 standard deviations (3σ)
