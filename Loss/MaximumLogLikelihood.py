@@ -15,7 +15,7 @@ def maximum_likelihood_criterion(mean, std, distribution):
 
 
 def maximum_log_likelihood_criterion(mean, std, distribution):
-    log_likelihood = 1
+    log_likelihood = 0
     for point in distribution:
         log_probability = np.log(normal_val(mean, std, point))
         log_likelihood += log_probability
