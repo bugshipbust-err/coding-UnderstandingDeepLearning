@@ -16,20 +16,19 @@ def linear_model(x, p1, p0):
     return (p1 * x) + p0
 
 
-def neg_log_loss(p1, p0, std, x_distribution, y):
+def neg_log_loss(p1, p0, std, x_distribution, y_distribution):
     log_likelihood = 0
     i = 0
     for point in x_distribution:
         mean = linear_model(x=point, p1=p1, p0=p0)
-        log_probability = torch.log(normal_func(mean, std, point))
+        log_probability = torch.log(normal_func(mean, std, y_distribution[i]))
         print(mean, y[i], " --> ", log_probability)
         log_likelihood += log_probability
         i += 1
     return -log_likelihood
 
 
-print(y)
-print(neg_log_loss(p1=3, p0=2, std=1, x_distribution=x, y=y))
+print(neg_log_loss(p1=3, p0=2, std=10, x_distribution=x, y_distribution=y))
 
 plt.scatter(x, y)
 plt.show()
