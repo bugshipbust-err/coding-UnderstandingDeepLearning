@@ -23,13 +23,10 @@ class LogGradLinearOptim:
     def gabor_model(self, point):
         return torch.tensor(lambda x: torch.sin(self.p0 + 0.06 * self.p1 * x) * torch.exp(torch.tensor(-((self.p0 + 0.06 * self.p1 * x) ** 2)) / 32.0))
 
-    def mse_stochastic_loss(self, sample=0.25):
+    def mse_loss(self):
         error = torch.zeros(1)
         i = 0
-
-        indices = torch.randperm(self.x.size(0))
-        sampled_elements = self.x[indices[:num_samples]]
-        for point in :
+        for point in self.x:
             y_ = self.gabor_model(point=point)
             error_val = (y_ - y)**2
             error += error_val
